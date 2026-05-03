@@ -573,3 +573,24 @@ button:hover {
     margin: 15px auto;
     text-align: left;
 }
+.highlight b {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+}
+
+label {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+label b {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+    display: inline;
+}
+
+#answers label {
+    white-space: normal;
+}

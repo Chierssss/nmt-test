@@ -297,8 +297,7 @@ function show(){
         let html="";
         q.a.forEach((ans,i)=>{
             let checked = answers[q.id]==i ? "checked":"";
-            html+=`<label><input type="radio" name="a" value="${i}" ${checked}> ${ans}</label>`;
-        });
+            html+=`<label><input type="radio" name="a" value="${i}" ${checked}>${ans}</label>`;        });
         document.getElementById("answers").innerHTML = html;
     }
 
