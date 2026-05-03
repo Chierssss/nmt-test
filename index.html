@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Пробний Національний Мультипредметний Тест</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="start-screen">
+
+    <div class="start-card">
+        <h1>Пробний Національний Мультипредметний Тест</h1>
+
+        <p class="subtitle">
+            Тренувальний тест з 4 предметів<br>
+            Математика • Українська • Історія • Англійська
+        </p>
+
+        <button onclick="startTest()">Почати тест</button>
+        <button onclick="location.href='result.html'">Мій результат</button>
+
+        <div class="start-info">
+             <br>
+            ⏱ Час: 240 хвилин<br>
+            📊 Результати після завершення
+        </div>
+
+    </div>
+
+
+</div>
+
+<script>
+function startTest(){
+    localStorage.setItem("block",1);
+    localStorage.setItem("current",0);
+    localStorage.removeItem("answers");
+    location.href="test.html";
+}
+</script>
+
+</body>
+</html>

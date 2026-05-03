@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>НМТ</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+
+<body>
+
+<!-- 🔹 ВЕРХ -->
+<div class="topbar">
+    <div id="subjectTop"></div>
+    <div>Час: <span id="timer"></span></div>
+</div>
+
+<!-- 🔹 ОСНОВА -->
+<div class="main">
+
+    <div class="left">
+
+        <!-- предмети -->
+        <div class="subjects" id="subjects"></div>
+
+        <!-- картка -->
+        <div class="card">
+            <div id="question"></div>
+            <div id="answers"></div>
+
+            <!-- кнопки -->
+            <div style="margin-top:20px">
+                <button id="prevBtn" onclick="prev()">Назад</button>
+                <button id="nextBtn" onclick="next()">Далі</button>
+                <button onclick="finish()">Завершити блок</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- права панель -->
+    <div class="right">
+        <div style="margin-bottom:10px; font-weight:bold;">Номери</div>
+        <div id="questionGrid" class="grid"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,575 @@
+/* 🔹 БАЗА */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f4f9;
+}
+
+/* 🔹 ВЕРХ */
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#timer {
+    color: #d32f2f;
+}
+
+/* 🔹 ОСНОВА */
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 25px;
+}
+
+/* 🔹 ЛІВА ЧАСТИНА */
+.left {
+    width: 850px;
+}
+
+.right {
+    width: 260px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
+    position: sticky;
+    top: 80px;
+}
+
+/* 🔹 КАРТКА */
+.card {
+    background: #fff;
+    padding: 35px;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* 🔹 ПИТАННЯ */
+#question {
+    margin-bottom: 25px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* 🔹 ВІДПОВІДІ */
+#answers label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#answers label:hover {
+    background: #f5f7fb;
+    border-color: #1976d2;
+}
+
+#answers input {
+    margin-right: 10px;
+}
+
+/* 🔹 КНОПКИ */
+button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #125ea8;
+}
+
+/* 🔹 ПРЕДМЕТИ */
+.subjects {
+    margin-bottom: 15px;
+}
+
+#question {
+    margin-bottom: 30px;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.subjects button {
+    background: #eef2f7;
+    color: #333;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    margin-right: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.subjects button:hover {
+    background: #dbe6f6;
+}
+
+.subject-active {
+    background: #1976d2 !important;
+    color: #fff !important;
+}
+
+
+/* 🔹 ПРАВА ПАНЕЛЬ */
+.right {
+    width: 260px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* 🔲 СІТКА */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+/* 🔹 КЛІТИНКИ */
+.cell {
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    background: #e9edf5;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ✔ ВІДПОВІВ */
+.answered {
+    background: #4caf50;
+    color: #fff;
+}
+
+/* 🔵 АКТИВНЕ */
+.current {
+    border: 2px solid #1976d2;
+    background: #e3f0ff;
+}
+
+/* 🔹 ЗОБРАЖЕННЯ */
+.question-img {
+    margin-top: 15px;
+    max-width: 100%;
+    border-radius: 6px;
+}
+
+/* 🔥 MATCH — КРАСИВИЙ */
+
+/* 🔥 НОВИЙ MATCH ВИГЛЯД */
+
+/* верхній блок */
+.match-top {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.match-left-block {
+    width: 40%;
+    line-height: 1.6;
+}
+
+.match-right-block {
+    width: 35%;
+    line-height: 1.6;
+}
+
+/* таблиця */
+.match-table {
+    margin-top: 10px;
+}
+
+.match-header,
+.match-row {
+    display: grid;
+    grid-template-columns: 30px repeat(5, 38px);
+    gap: 10px;
+    justify-content: start;
+}
+
+.match-table {
+    margin-top: 15px;
+    width: fit-content; 
+}
+
+.match-header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.match-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    box-sizing: border-box; /* 🔥 важливо */
+    
+    border-radius: 8px;
+    background: #f3f6fb;
+    border: 1px solid #dcdcdc;
+}
+
+.match-table {
+    margin-top: 15px;
+    max-width: 280px; /* 🔥 обмежує ширину */
+}
+
+.match-cell:hover {
+    background: #e3f0ff;
+    border-color: #1976d2;
+}
+
+.match-cell input {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+/* номер рядка */
+.left-item {
+    font-weight: 600;
+    text-align: center;
+    font-size: 14px;
+}
+
+.match-cell input:checked {
+    accent-color: #1976d2;
+}
+
+/* 🔹 INPUT */
+#inputAnswer {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#answers label {
+    margin-bottom: 12px;
+    padding: 12px 14px;
+}
+.shape {
+    font-size: 30px;
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+}
+
+.skip-btn {
+    margin-top: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.skip-btn:hover {
+    background: #1565c0;
+}
+
+.option-img {
+    width: 300px;
+    height: auto;
+    border-radius: 6px;
+}
+
+#answers label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.img-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.img-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    cursor: grab;
+    transition: transform 0.1s ease;
+}
+
+img {
+    cursor: zoom-in;
+}
+
+.match-row .left-item::before {
+    content: none !important;
+}
+
+.letters .match-row:nth-child(2) .left-item::before { content: "А. "; }
+.letters .match-row:nth-child(3) .left-item::before { content: "Б. "; }
+.letters .match-row:nth-child(4) .left-item::before { content: "В. "; }
+.letters .match-row:nth-child(5) .left-item::before { content: "Г. "; }
+
+/* 🔹 СТАРТОВА СТОРІНКА */
+.start-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    /* 🔥 фон красивіший */
+    background: linear-gradient(135deg, #eef2f7, #dbe6f6);
+}
+
+/* 🔹 КАРТКА */
+.start-card {
+    background: #fff;
+    padding: 40px 50px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    max-width: 500px;
+}
+
+/* 🔹 ЗАГОЛОВОК */
+.start-card h1 {
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+/* 🔹 ОПИС */
+.subtitle {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* 🔹 КНОПКИ */
+.start-buttons {
+    margin-bottom: 20px;
+}
+
+.start-buttons button {
+    padding: 12px 18px;
+    font-size: 14px;
+}
+
+/* 🔹 ДРУГА КНОПКА */
+.secondary {
+    background: #e9edf5;
+    color: #333;
+}
+
+.secondary:hover {
+    background: #dfe5ef;
+}
+
+/* 🔹 ІНФО */
+.start-info {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.6;
+}
+
+.start-card {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.task-title {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.topbar {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 14px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* предмет */
+.topbar span {
+    color: #333;
+}
+
+/* таймер */
+#timer {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+#answers label {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+/* hover */
+#answers label:hover {
+    background: #f0f6ff;
+    border-color: #1976d2;
+}
+
+/* ВИБРАНО */
+#answers input:checked + span {
+    font-weight: 600;
+}
+
+#answers input:checked {
+    accent-color: #1976d2;
+}
+
+button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #125ea8;
+    transform: translateY(-1px);
+}
+
+.right {
+    width: 260px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 18px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* клітинки */
+.cell {
+    padding: 10px;
+    border-radius: 8px;
+    background: #eef2f7;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.cell:hover {
+    background: #dbe6f6;
+}
+
+.answered {
+    background: #4caf50;
+    color: #fff;
+}
+
+.current {
+    border: 2px solid #1976d2;
+    background: #e3f0ff;
+}
+
+/* 🔹 таблиця результатів */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.result-table th {
+    background: #f1f4f9;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.result-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.result-table tr:hover {
+    background: #f9fbff;
+}
+
+/* 🔹 підсумок */
+.total-score {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#errorList,
+#errorsList {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.error-item,
+.card {
+    max-width: 600px;
+    margin: 15px auto;
+    text-align: left;
+}

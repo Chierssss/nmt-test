@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Помилки</title>
+<link rel="stylesheet" href="style.css">
+<script src="data.js"></script>
+</head>
+
+<body class="start-screen">
+
+<div class="start-card">
+
+    <h2>Помилки</h2>
+
+    <div class="subjects">
+        <button onclick="showErrors('Математика')">Математика</button>
+        <button onclick="showErrors('Українська мова')">Українська</button>
+        <button onclick="showErrors('Історія')">Історія</button>
+        <button onclick="showErrors('Англійська мова')">Англійська</button>
+    </div>
+
+    <div id="errorsList"></div>
+
+    <button onclick="location.href='result.html'">
+        Назад
+    </button>
+
+</div>
+
+<script src="errors.js"></script>
+
+</body>
+</html>

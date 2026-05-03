@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Перерва</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="start-screen">
+
+<div class="start-card">
+
+    <h2>Перерва</h2>
+
+    <p class="subtitle">
+        До початку наступного блоку:
+    </p>
+
+    <div id="timer" style="font-size:28px; margin:15px 0; color:#d32f2f;">
+        20:00
+    </div>
+
+    <button onclick="skipBreak()" class="skip-btn">
+        Пропустити перерву
+    </button>
+
+</div>
+
+<script>
+
+let breakTime = 20 * 60;
+
+let timer = setInterval(()=>{
+    breakTime--;
+
+    let m = Math.floor(breakTime/60);
+    let s = breakTime % 60;
+
+    document.getElementById("timer").innerText =
+        `${m}:${s.toString().padStart(2,'0')}`;
+
+    if(breakTime <= 0){
+        clearInterval(timer);
+        startBlock2();
+    }
+
+},1000);
+
+function skipBreak(){
+    startBlock2();
+}
+
+function startBlock2(){
+    localStorage.setItem("block",2);
+    localStorage.setItem("current",0);
+    location.href="test.html";
+}
+
+</script>
+
+</body>
+</html>
