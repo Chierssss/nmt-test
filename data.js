@@ -1665,10 +1665,10 @@ const eng = [
     q:"<b>Skype Logo</b><br><br>In 2003 ______ form of <b> the popular Skype icon ______.</b>It was based on a simple yellow speech balloon. The icon ________ several overhauls throughout the years. The current Skype icon features the letter “S” in white color with a bright blue background. The bubbly Skype logo is based on the Arial Rounded MT Bold typeface. It features the company name on a series of circles which ________ make a “cloud”. The blue color in the Skype logo represents communication, prosperity and ________ of hope; whereas the white color represents peace and harmony.",
 
     a:[
-        "earlier",
-        "the earliest",
-        "earliest",
-        "the earlier"
+        "was launched",
+        "has been launched",
+        "had been launched",
+        "is launched"
     ],
 
     correct:0,
@@ -1680,10 +1680,10 @@ const eng = [
     q:"<b>Skype Logo</b><br><br>In 2003 ______ form of the popular Skype icon ______.It was based on a simple yellow speech balloon. <b> The icon ________ several overhauls throughout the years. </b> The current Skype icon features the letter “S” in white color with a bright blue background. The bubbly Skype logo is based on the Arial Rounded MT Bold typeface. It features the company name on a series of circles which ________ make a “cloud”. The blue color in the Skype logo represents communication, prosperity and ________ of hope; whereas the white color represents peace and harmony.",
 
     a:[
-        "earlier",
-        "the earliest",
-        "earliest",
-        "the earlier"
+        "undergo",
+        "undergone",
+        "undergoing",
+        "underwent"
     ],
 
     correct:3,
@@ -1695,10 +1695,10 @@ const eng = [
     q:"<b>Skype Logo</b><br><br>In 2003 ______ form of the popular Skype icon ______.It was based on a simple yellow speech balloon. The icon ________ several overhauls throughout the years. The current Skype icon features the letter “S” in white color with a bright blue background. The bubbly Skype logo is based on the Arial Rounded MT Bold typeface. <b> It features the company name on a series of circles which ________ make a “cloud”. </b> The blue color in the Skype logo represents communication, prosperity and ________ of hope; whereas the white color represents peace and harmony.",
 
     a:[
-        "earlier",
-        "the earliest",
-        "earliest",
-        "the earlier"
+        "collection",
+        "collective",
+        "collectively",
+        "collect"
     ],
 
     correct:2,
@@ -1710,10 +1710,10 @@ const eng = [
     q:"<b>Skype Logo</b><br><br>In 2003 ______ form of the popular Skype icon ______.It was based on a simple yellow speech balloon. The icon ________ several overhauls throughout the years. The current Skype icon features the letter “S” in white color with a bright blue background. The bubbly Skype logo is based on the Arial Rounded MT Bold typeface. It features the company name on a series of circles which ________ make a “cloud”. <b> The blue color in the Skype logo represents communication, prosperity and ________ of hope; whereas the white color represents peace and harmony. </b>",
 
     a:[
-        "earlier",
-        "the earliest",
-        "earliest",
-        "the earlier"
+        "an emotion",
+        "a emotion",
+        "emotion",
+        "the emotion"
     ],
 
     correct:3,
