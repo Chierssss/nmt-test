@@ -28,6 +28,9 @@
         <button onclick="location.href='errors.html'">
             Переглянути помилки
         </button>
+        <button onclick="resetTest()" style="background:#d32f2f;">
+            Почати нову спробу
+        </button>
     </div>
 
 </div>
@@ -35,6 +38,12 @@
 <script src="data.js"></script>
 <script src="script.js"></script>
 
+<script>
+function resetTest(){
+    localStorage.clear();
+    location.href = "index.html";
+}
+</script>
 
 </body>
 </html>

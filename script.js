@@ -107,19 +107,44 @@ if(document.getElementById("errors")){
 // TIMER
 // --------------------
 function startTimer(){
+
+    let blockKey = "timeLeft_block_" + block;
+
+    // якщо ще не було часу — ставимо 120 хв
+    if(!localStorage.getItem(blockKey)){
+        localStorage.setItem(blockKey, 120 * 60);
+    }
+
+    let timeLeft = Number(localStorage.getItem(blockKey));
+
     timerInterval = setInterval(()=>{
+
         timeLeft--;
+
         localStorage.setItem(blockKey, timeLeft);
+
         let m = Math.floor(timeLeft/60);
-        let s = timeLeft%60;
+        let s = timeLeft % 60;
 
         document.getElementById("timer").innerText =
-        `${m}:${s.toString().padStart(2,'0')}`;
+            `${m}:${s.toString().padStart(2,'0')}`;
 
-        if(timeLeft<=0){
+        // 🔴 попередження за 5 хв
+        if(timeLeft === 300){
+            alert("Залишилось 5 хвилин!");
+        }
+
+        // 🔴 червоний таймер за 1 хв
+        if(timeLeft <= 60){
+            document.getElementById("timer").style.color = "red";
+        }
+
+        // ⛔ час вийшов
+        if(timeLeft <= 0){
             clearInterval(timerInterval);
             finish();
         }
+
     },1000);
 }
 
@@ -309,10 +334,30 @@ function show(){
 
     prevBtn.style.display = current === 0 ? "none" : "inline-block";
 
+    let finishBtn = document.getElementById("finishBtn");
+
     if(current === filtered.length - 1){
+
         nextBtn.style.display = "none";
+
+        // список предметів у блоці
+        let subs = [...new Set(currentQuestions.map(q=>q.sub))];
+
+        let index = subs.findIndex(
+            s => s.trim().toLowerCase() === currentSubject.trim().toLowerCase()
+        );
+
+        if(index < subs.length - 1){
+            // є наступний предмет
+            finishBtn.innerText = "Далі → " + subs[index + 1];
+        }else{
+            // останній предмет
+            finishBtn.innerText = "Завершити блок";
+        }
+
     }else{
         nextBtn.style.display = "inline-block";
+        finishBtn.innerText = "Завершити блок";
     }
 }
 
@@ -321,7 +366,9 @@ function show(){
 // --------------------
 function save(){
 
-    let filtered = currentQuestions.filter(q=>q.sub===currentSubject);
+    let filtered = currentQuestions.filter(
+        q => q.sub.trim().toLowerCase() === currentSubject.trim().toLowerCase()
+    );
     let q = filtered[current];
 
     if(q.type === "match"){
@@ -398,18 +445,33 @@ function buildGrid(filtered){
 
 function finish(){
 
-    save(); // зберігаємо останню відповідь
+    save();
 
-    localStorage.setItem("answers", JSON.stringify(answers));
+    // список предметів у поточному блоці
+    let subs = [...new Set(currentQuestions.map(q=>q.sub))];
 
-    // якщо це перший блок → перехід на перерву
+    let index = subs.findIndex(
+        s => s.trim().toLowerCase() === currentSubject.trim().toLowerCase()
+    );
+
+    // 🔥 якщо є наступний предмет → перейти
+    if(index < subs.length - 1){
+        currentSubject = subs[index + 1];
+        current = 0;
+
+        localStorage.setItem("current", 0);
+
+        show(); // показуємо новий предмет
+        return;
+    }
+
+    // 🔥 якщо це вже останній предмет у блоці
     if(block === 1){
         localStorage.setItem("block", 2);
         localStorage.setItem("current", 0);
         location.href = "break.html";
     }
     else{
-        // останній блок → результат
         location.href = "result.html";
     }
 }
