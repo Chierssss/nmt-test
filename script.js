@@ -272,10 +272,12 @@ function show(){
                         ${rowLabels ? rowLabels[i] : (i+1)}
                     </div>
 
-                    ${colLabels.map(letter=>{
-                    let checked = answers[q.id]?.[i] === letter ? "checked" : "";
+                ${colLabels.map(letter=>{
+                    let index = colLabels.indexOf(letter);
+                    let checked = Number(answers[q.id]?.[i]) === index ? "checked" : "";
+
                     return `<label class="match-cell">
-                        <input type="radio" name="match_${i}" value="${letter}" ${checked}>
+                        <input type="radio" name="match_${i}" value="${index}" ${checked}>
                     </label>`;
                 }).join("")}
 
@@ -385,14 +387,15 @@ function save(){
     );
     let q = filtered[current];
 
-    if(q.type === "match"){
-        let arr = [];
-        q.left.forEach((_, i)=>{
-            let s = document.querySelector(`input[name="match_${i}"]:checked`);
-            arr.push(s ? s.value : "");
-        });
-        answers[q.id] = arr;
-    }
+            if(q.type === "match"){
+                let arr = [];
+                q.left.forEach((_, i)=>{
+                    let s = document.querySelector(`input[name="match_${i}"]:checked`);
+                    arr.push(s ? Number(s.value) : null); // 🔥 ФІКС
+                });
+                answers[q.id] = arr;
+            }
+            
     else if(q.type === "input"){
         answers[q.id] = document.getElementById("inputAnswer").value;
     }
@@ -408,7 +411,9 @@ function save(){
 function next(){
     save();
 
-    let filtered = currentQuestions.filter(q=>q.sub===currentSubject);
+    let filtered = currentQuestions.filter(
+        q => q.sub.trim().toLowerCase() === currentSubject.trim().toLowerCase()
+    );
 
     if(current < filtered.length-1){
         current++;
@@ -585,17 +590,36 @@ function buildResult(){
         "Англійська мова": {score:0, max:32}
     };
 
-        questions.forEach(q=>{
+    questions.forEach(q=>{
 
-    let userAnswer = answers[q.id];
+        
+    if(answers[q.id] === undefined) return;
+
+        
+        let userAnswer = answers[q.id];
+
 
     if(userAnswer === undefined) return;
 
     let correct = false;
 
         if(q.type === "match"){
-            correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
+
+    correct = true;
+
+    for(let i = 0; i < userAnswer.length; i++){
+
+        let userIndex = Number(userAnswer[i]);
+        let correctIndex = Number(q.correct[i+1]);
+
+        if(userIndex !== correctIndex){
+            correct = false;
+            break;
         }
+    }
+}
+
+        
 
         else if(q.type === "multiinput"){
             correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
@@ -613,8 +637,7 @@ function buildResult(){
         }
 
         else{
-            correct = userAnswer === q.correct;
-        }
+        correct = Number(userAnswer) === Number(q.correct);        }
 
         if(correct){
             result[q.sub].score += q.points || 1;

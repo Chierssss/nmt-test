@@ -21,8 +21,20 @@ function showErrors(subject){
 
         // 🔥 перевірка (розумна)
         if(q.type === "match"){
-            correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
+
+    correct = true;
+
+    for(let i = 0; i < userAnswer.length; i++){
+
+        let userIndex = Number(userAnswer[i]); // тепер це число
+        let correctIndex = q.correct[i+1];
+
+        if(userIndex !== correctIndex){
+            correct = false;
+            break;
         }
+    }
+}
 
         else if(q.type === "multiinput"){
             correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
@@ -40,7 +52,7 @@ function showErrors(subject){
         }
 
         else{
-            correct = userAnswer === q.correct;
+            correct = Number(userAnswer) === Number(q.correct);
         }
 
         if(!correct){
@@ -77,9 +89,23 @@ function formatAnswer(q, ans){
 
     if(ans === undefined) return "немає";
 
-    // match
     if(q.type === "match"){
-        return ans.join(", ");
+
+        let letters = ["А","Б","В","Г","Д"];
+
+        // якщо це твоя відповідь (масив індексів)
+        if(Array.isArray(ans)){
+            return ans.map(i => letters[i]).join(", ");
+        }
+
+        // якщо це правильна відповідь (object)
+        if(typeof ans === "object"){
+            let arr = [];
+            for(let i = 1; i <= Object.keys(ans).length; i++){
+                arr.push(letters[ans[i]]);
+            }
+            return arr.join(", ");
+        }
     }
 
     // multiinput
