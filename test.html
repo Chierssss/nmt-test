@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>НМТ</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <link rel="stylesheet" href="style.css">
 <script src="data.js"></script>
 </head>
@@ -48,5 +49,20 @@
 
 <script src="script.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    if(window.renderMathInElement){
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$", right: "$", display: false},
+                {left: "$$", right: "$$", display: true}
+            ]
+        });
+    }
+});
+</script>
 </body>
 </html>

@@ -286,6 +286,7 @@ function show(){
         html += `</div>`;
 
         document.getElementById("answers").innerHTML = html;
+
     }
 
     // INPUT
@@ -322,11 +323,24 @@ function show(){
         let html="";
         q.a.forEach((ans,i)=>{
             let checked = answers[q.id]==i ? "checked":"";
-            html+=`<label><input type="radio" name="a" value="${i}" ${checked}>${ans}</label>`;        });
+        html+=`
+        <label class="option">
+            <input type="radio" name="a" value="${i}" ${checked}>
+            <span class="option-text">${ans}</span>
+        </label>
+        `;            
+        
+        });
+
         document.getElementById("answers").innerHTML = html;
     }
 
     buildGrid(filtered);
+
+        if(window.renderMathInElement){
+        renderMathInElement(document.getElementById("question"), {throwOnError:false});
+        renderMathInElement(document.getElementById("answers"), {throwOnError:false});
+    }
 
     // 🔥 КНОПКИ
     let prevBtn = document.getElementById("prevBtn");
@@ -447,7 +461,16 @@ function finish(){
 
     save();
 
-    // список предметів у поточному блоці
+    // 🔥 перевірка пропущених У ВСЬОМУ БЛОЦІ (як в НМТ)
+    let unanswered = currentQuestions.filter(q => answers[q.id] === undefined).length;
+
+    if(unanswered > 0){
+        let ok = confirm(`Ви не відповіли на ${unanswered} питань. Завершити блок?`);
+        if(!ok) return;
+    }
+
+    // 🔽 ДАЛІ ТВОЯ ЛОГІКА (НЕ ЧІПАЄМО)
+
     let subs = [...new Set(currentQuestions.map(q=>q.sub))];
 
     let index = subs.findIndex(
@@ -461,7 +484,7 @@ function finish(){
 
         localStorage.setItem("current", 0);
 
-        show(); // показуємо новий предмет
+        show();
         return;
     }
 
@@ -564,23 +587,39 @@ function buildResult(){
 
         questions.forEach(q=>{
 
-            let userAnswer = answers[q.id];
+    let userAnswer = answers[q.id];
 
-            if(userAnswer === undefined) return;
+    if(userAnswer === undefined) return;
 
-            let correct = false;
+    let correct = false;
 
-            if(q.type === "match"){
-                correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
+        if(q.type === "match"){
+            correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
+        }
+
+        else if(q.type === "multiinput"){
+            correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
+        }
+
+        else if(q.type === "input"){
+
+            let user = userAnswer;
+
+            if(typeof user === "string"){
+                user = parseFloat(user.replace(",", ".").trim());
             }
-            else{
-                correct = userAnswer === q.correct;
-            }
 
-            if(correct){
-                result[q.sub].score += q.points || 1;
-            }
-        });
+            correct = Math.abs(user - q.correct) < 0.01;
+        }
+
+        else{
+            correct = userAnswer === q.correct;
+        }
+
+        if(correct){
+            result[q.sub].score += q.points || 1;
+        }
+    });
 
     // 🔥 вивід
     let tbody = document.getElementById("result-body");

@@ -360,6 +360,32 @@ img {
     max-width: 500px;
 }
 
+.option{
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option-text{
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.hl{
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+label{
+    white-space: normal;
+}
+
+.hl{
+    font-weight: 700;
+    white-space: nowrap;
+    color: #000;
+}
+
 /* 🔹 ЗАГОЛОВОК */
 .start-card h1 {
     margin-bottom: 15px;

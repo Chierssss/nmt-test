@@ -19,13 +19,26 @@ function showErrors(subject){
 
         let correct = false;
 
-        // 🔥 перевірка
+        // 🔥 перевірка (розумна)
         if(q.type === "match"){
             correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
         }
+
         else if(q.type === "multiinput"){
             correct = JSON.stringify(userAnswer) === JSON.stringify(q.correct);
         }
+
+        else if(q.type === "input"){
+
+            let user = userAnswer;
+
+            if(typeof user === "string"){
+                user = parseFloat(user.replace(",", ".").trim());
+            }
+
+            correct = Math.abs(user - q.correct) < 0.01;
+        }
+
         else{
             correct = userAnswer === q.correct;
         }
