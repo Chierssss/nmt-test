@@ -287,6 +287,18 @@ function show(){
         html += `</div>`;
 
         document.getElementById("answers").innerHTML = html;
+        document.querySelectorAll('input[type="radio"]').forEach(input=>{
+    input.addEventListener("change", ()=>{
+if(!answers[q.id]) answers[q.id] = new Array(q.left.length).fill(null);
+
+        let name = input.name.split("_"); // ["match", id, index]
+        let row = Number(name[2]);
+
+        answers[q.id][row] = Number(input.value);
+
+        localStorage.setItem("answers", JSON.stringify(answers));
+    });
+});
 
     }
 
