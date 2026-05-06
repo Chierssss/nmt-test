@@ -277,7 +277,7 @@ function show(){
                     let checked = Number(answers[q.id]?.[i]) === index ? "checked" : "";
 
                     return `<label class="match-cell">
-                        <input type="radio" name="match_${i}" value="${index}" ${checked}>
+                        <input type="radio" name="match_${q.id}_${i}" value="${index}" ${checked}>
                     </label>`;
                 }).join("")}
 
