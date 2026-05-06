@@ -390,12 +390,21 @@ function save(){
             if(q.type === "match"){
                 let arr = [];
                 q.left.forEach((_, i)=>{
-                    let s = document.querySelector(`input[name="match_${i}"]:checked`);
-                    arr.push(s ? Number(s.value) : null); // 🔥 ФІКС
+                let options = document.querySelectorAll(`input[name="match_${i}"]`);
+
+                let selected = null;
+
+                options.forEach(opt=>{
+                    if(opt.checked){
+                        selected = Number(opt.value);
+                    }
                 });
+
+                arr.push(selected);
+            });
                 answers[q.id] = arr;
             }
-            
+
     else if(q.type === "input"){
         answers[q.id] = document.getElementById("inputAnswer").value;
     }
