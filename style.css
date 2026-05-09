@@ -620,3 +620,33 @@ label b {
 #answers label {
     white-space: normal;
 }
+
+@media print {
+
+    body{
+        background:white !important;
+    }
+
+    .subjects,
+    button{
+        display:none !important;
+    }
+
+    .start-card{
+        max-width:100% !important;
+        box-shadow:none !important;
+        border:none !important;
+        padding:0 !important;
+    }
+
+    .card{
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow:none !important;
+    }
+
+    #errorsList{
+        max-height:none !important;
+        overflow:visible !important;
+    }
+}

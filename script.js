@@ -401,7 +401,7 @@ function save(){
             if(q.type === "match"){
                 let arr = [];
                 q.left.forEach((_, i)=>{
-                let options = document.querySelectorAll(`input[name="match_${i}"]`);
+                let options = document.querySelectorAll(`input[name="match_${q.id}_${i}"]`);
 
                 let selected = null;
 
@@ -486,24 +486,15 @@ function finish(){
 
     save();
 
-    // 🔥 перевірка пропущених У ВСЬОМУ БЛОЦІ (як в НМТ)
-    let unanswered = currentQuestions.filter(q => answers[q.id] === undefined).length;
-
-    if(unanswered > 0){
-        let ok = confirm(`Ви не відповіли на ${unanswered} питань. Завершити блок?`);
-        if(!ok) return;
-    }
-
-    // 🔽 ДАЛІ ТВОЯ ЛОГІКА (НЕ ЧІПАЄМО)
-
     let subs = [...new Set(currentQuestions.map(q=>q.sub))];
 
     let index = subs.findIndex(
         s => s.trim().toLowerCase() === currentSubject.trim().toLowerCase()
     );
 
-    // 🔥 якщо є наступний предмет → перейти
+    // 🔥 якщо є наступний предмет — перейти БЕЗ confirm
     if(index < subs.length - 1){
+
         currentSubject = subs[index + 1];
         current = 0;
 
@@ -513,13 +504,54 @@ function finish(){
         return;
     }
 
-    // 🔥 якщо це вже останній предмет у блоці
+    // 🔥 confirm тільки в кінці блоку
+    let unanswered = currentQuestions.filter(q => {
+
+        let ans = answers[q.id];
+
+        if(ans === undefined) return true;
+
+        if(q.type === "match"){
+            return (
+                !Array.isArray(ans) ||
+                ans.some(v => v === null || v === undefined)
+            );
+        }
+
+        if(q.type === "multiinput"){
+            return (
+                !Array.isArray(ans) ||
+                ans.some(v => String(v).trim() === "")
+            );
+        }
+
+        if(q.type === "input"){
+            return String(ans).trim() === "";
+        }
+
+        return false;
+
+    }).length;
+
+    if(unanswered > 0){
+
+        let ok = confirm(
+            `Ви не відповіли на ${unanswered} питань. Завершити блок?`
+        );
+
+        if(!ok) return;
+    }
+
+    // 🔥 завершення блоку
     if(block === 1){
+
         localStorage.setItem("block", 2);
         localStorage.setItem("current", 0);
+
         location.href = "break.html";
-    }
-    else{
+
+    }else{
+
         location.href = "result.html";
     }
 }
@@ -621,23 +653,23 @@ function buildResult(){
 
     if(userAnswer === undefined) return;
 
-    let correct = false;
+        let correct = false;
 
-        if(q.type === "match"){
+    if(q.type === "match"){
 
-    correct = true;
+        let points = 0;
 
-    for(let i = 0; i < userAnswer.length; i++){
+        for(let i = 0; i < q.correct.length; i++){
 
-        let userIndex = Number(userAnswer[i]);
-        let correctIndex = Number(q.correct[i+1]);
-
-        if(userIndex !== correctIndex){
-            correct = false;
-            break;
+            if(Number(userAnswer[i]) === Number(q.correct[i])){
+                points++;
+            }
         }
+
+        result[q.sub].score += points;
+
+        return;
     }
-}
 
         
 
@@ -662,7 +694,7 @@ function buildResult(){
         if(correct){
             result[q.sub].score += q.points || 1;
         }
-    });
+        });
 
     // 🔥 вивід
     let tbody = document.getElementById("result-body");

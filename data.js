@@ -1,5 +1,3 @@
-
-
 /* 🔹 МАТЕМАТИКА*/
 const math = [
     
@@ -70,7 +68,7 @@ const math = [
     "набуває додатного значення в точці x = −3",
     "є непарною"
     ],
-    correct:["1","3","4"], points:3
+    correct:[1,3,4], points:3
     },
     
     {id:17, sub:"Математика",
@@ -88,7 +86,7 @@ const math = [
     "-2",
     "√2"
     ],
-    correct:["0","3","1"], points:3
+    correct:[0,3,1], points:3
     },
     
     {id:18, sub:"Математика",
@@ -107,7 +105,7 @@ const math = [
     "15 см",
     "18 см"
     ],
-    correct:["0","2","4"], points:3
+    correct:[0,2,4], points:3
     },
     
     {id:19, sub:"Математика",
@@ -197,7 +195,7 @@ const ukr = [
     },
 
     {id:106, sub:"Українська мова",
-    q:"Букву у треба писати на місці пропуску в усіх словах рядка",
+    q:"Букву и треба писати на місці пропуску в усіх словах рядка",
     a:[
         "тр..вожний, абр..кос, м..тушливий",
         "мер..діан, теор..тичний, др..жати",
@@ -326,7 +324,7 @@ const ukr = [
     a:[
         "дев’яносто, від восьми до вісімдесяти",
         "дев’яноста, від вісьми до восьмидесяти",
-        "дев’яноста, від восьми до восьмидесятих",
+        "дев’яноста, від восьми до восьмидесятьох",
         "дев’яносто, від вісьми до вісімдесяти",
         "дев’яноста, від восьми до вісімдесяти"
     ],
@@ -338,10 +336,10 @@ const ukr = [
     q:"<i>Повідомляти ______ курсів водіння про ______ наслідки порушень на автошляхах так само важливо, як і навчати ______ дорожнього руху.</i>",
     a:[
         "слухачам, самі ймовірні, правил",
-        "слухачів, найбільш ймовірніші, правилам",
+        "слухачів, найбільш імовірніші, правилам",
         "слухачів, найімовірніші, правил",
         "слухачам, найімовірні, правилам",
-        "слухачів, найбільш ймовірні, правилам"
+        "слухачів, найбільш імовірні, правилам"
     ],
     correct:2,
     points:1
@@ -350,7 +348,7 @@ const ukr = [
     { id:118, sub:"Українська мова",
     q:"<i>__________, сестра знову експериментувала на кухні й приготувала кольрабі, __________ у вершковому соусі.</i>",
     a:[
-        "Андрію, тушковану",
+        "Андрій, тушковану",
         "Андрію, тушковану",
         "Андріє, тушковане",
         "Андрію, тушковане",
@@ -364,7 +362,7 @@ const ukr = [
     q:"<i>Демонстрація модних ______ нової колекції ______ відбудеться через ______.</i>",
     a:[
         "пальт, Тараса Демиденка, півтори місяці",
-        "пальто, Тараса Демиденка, півтора місяця",
+        "пальто, Тараса Демиденко, півтора місяця",
         "пальто, Тараса Демиденка, півтора місяців",
         "пальт, Тараса Демиденко, півтора місяці",
         "пальт, Тараса Демиденка, півтора місяця"
@@ -378,7 +376,7 @@ const ukr = [
     a:[
         "пересаджу, куща, більш світлу",
         "пересаджу, кущі, більш світлішу",
-        "пересаджу, куща, більш світлу",
+        "пересажду, куща, більш світлу",
         "пересаджу, кущі, світлішу",
         "пересаджу, кущів, світлішу"
     ],
@@ -530,13 +528,7 @@ const ukr = [
         "брати ноги на плечі"
     ],
 
-    correct:{
-    1:1,
-    2:0,
-    3:2,
-    4:3
-    },
-
+    correct:[1,0,2,3],
     points:4
     },
 
@@ -560,12 +552,7 @@ const ukr = [
         "сполучник"
     ],
 
-    correct:{
-    1:1,
-    2:2,
-    3:4,
-    4:0
-    },
+    correct:[1,2,4,0],
 
     points:4
     },
@@ -590,12 +577,7 @@ const ukr = [
         "<b>Коли проєкт набрав обертів</b>, учасники почали обмінюватися ще й марками, світлинами, влаштовувати конкурси, лотереї."
     ],
 
-    correct:{
-    1:0,
-    2:2,
-    3:4,
-    4:1
-    },
+    correct:[0,2,4,1],
 
     points:4
     },
@@ -619,12 +601,7 @@ const ukr = [
         "Людиноподібні мавпи мають високий рівень інтелекту, у них розвинені певні мовні навички, а шимпанзе – один з найрозумніших приматів."
     ],
 
-    correct:{
-        1:1,
-        2:3,
-        3:2,
-        4:4
-    },
+    correct:[1,3,2,4],
 
     points:4
     },
@@ -648,12 +625,7 @@ const ukr = [
         "Чай краще пити гарячим, хоч і холодним він не втратить свого шарму – легкого східного смаку."
     ],
 
-    correct:{
-        1:1,
-        2:3,
-        3:2,
-        4:4
-    },
+    correct:[1,3,2,4],
 
     points:4
     }
@@ -909,7 +881,7 @@ const history = [
         "<img src='images/v.20.png' class='option-img'>",
         "<img src='images/g.20.png' class='option-img'>"
         ],
-    correct:2,
+    correct:3,
     points:1
     },
 
@@ -932,13 +904,7 @@ const history = [
         "«Вічний мир» (1686 р.)"
     ],
 
-    correct:{
-    1:1,
-    2:0,
-    3:2,
-    4:4
-    },
-
+    correct:[1,0,2,4],
     points:4
     },
 
@@ -961,12 +927,7 @@ const history = [
         "щомісячний історико-етнографічний та літературний часопис, що видавався в Києві російською та українською мовами протягом 1882–1906 рр."
     ],
 
-    correct:{
-    1:2,
-    2:0,
-    3:1,
-    4:3
-    },
+    correct:[2,0,1,3],
 
     points:4
     },
@@ -990,12 +951,7 @@ const history = [
         "громадсько-політичний діяч Галичини, засновник патріотичної молодіжної організації «Січ»"
     ],
 
-    correct:{
-    1:4,
-    2:0,
-    3:2,
-    4:1
-    },
+    correct:[4,0,2,1],
 
     points:4
     },
@@ -1019,12 +975,7 @@ const history = [
         "1945 р."
     ],
 
-    correct:{
-    1:1,
-    2:4,
-    3:0,
-    4:2
-    },
+    correct:[1,4,0,2],
 
     points:4
     },
@@ -1043,12 +994,7 @@ const history = [
 
     right:["","","",""],
 
-    correct:{
-    1:2,
-    2:0,
-    3:3,
-    4:1
-    },
+    correct:[2,0,3,1],
     points:4
 
     },
@@ -1068,12 +1014,7 @@ const history = [
 
     right:["","","",""],
 
-    correct:{
-    0:0, // А → 1
-    1:1, // Б → 2
-    2:3, // В → 4
-    3:2  // Г → 3
-    },
+    correct:[0,1,3,2],
 
     points:4
     },
@@ -1093,12 +1034,7 @@ const history = [
 
     right:["","","",""],
 
-    correct:{
-    0:2, // А → 3
-    1:0, // Б → 1
-    2:3, // В → 4
-    3:1  // Г → 2
-    },
+    correct:[2,0,3,1],
 
     points:4
     },
@@ -1589,10 +1525,10 @@ const eng = [
     q:"<b>Bach, Beatles and ...Maths?</b><br><br>From the rich complexity of the Bach fugues to the catchy songs of the Beatles music and mathematics overlap in all kinds of interesting ______. Would you believe that research has shown that certain __________ of music end up being more popular and mainstream __________ their mathematical structure? The link between the physical practice of music and strong mathematical __________ are demonstrated in various studies. They show that kids who play a musical instrument can __________ more complex arithmetical operations than those who do not play an instrument.<br><br><i>Would you believe that research has shown that certain (24) __________ of music end up being more popular and mainstream __________ their mathematical structure?</i>",
 
     a:[
-        "means",
-        "items",
-        "ways",
-        "methods"
+        "notes",
+        "pieces",
+        "details",
+        "tones"
     ],
 
     correct:1,
@@ -1604,10 +1540,10 @@ const eng = [
     q:"<b>Bach, Beatles and ...Maths?</b><br><br>From the rich complexity of the Bach fugues to the catchy songs of the Beatles music and mathematics overlap in all kinds of interesting ______. Would you believe that research has shown that certain __________ of music end up being more popular and mainstream __________ their mathematical structure? The link between the physical practice of music and strong mathematical __________ are demonstrated in various studies. They show that kids who play a musical instrument can __________ more complex arithmetical operations than those who do not play an instrument.<br><br><i>Would you believe that research has shown that certain __________ of music end up being more popular and mainstream (25) __________ their mathematical structure?</i>",
 
     a:[
-        "means",
-        "items",
-        "ways",
-        "methods"
+        "except for",
+        "along with",
+        "due to",
+        "apart from"
     ],
 
     correct:2,
@@ -1619,10 +1555,10 @@ const eng = [
     q:"<b>Bach, Beatles and ...Maths?</b><br><br>From the rich complexity of the Bach fugues to the catchy songs of the Beatles music and mathematics overlap in all kinds of interesting ______. Would you believe that research has shown that certain __________ of music end up being more popular and mainstream __________ their mathematical structure? The link between the physical practice of music and strong mathematical __________ are demonstrated in various studies. They show that kids who play a musical instrument can __________ more complex arithmetical operations than those who do not play an instrument.<br><br><i>The link between the physical practice of music and strong mathematical __________ are demonstrated in various studies. </i>",
 
     a:[
-        "means",
-        "items",
-        "ways",
-        "methods"
+        "abilities",
+        "opportunities",
+        "properties",
+        "features"
     ],
 
     correct:0,
@@ -1634,10 +1570,10 @@ const eng = [
     q:"<b>Bach, Beatles and ...Maths?</b><br><br>From the rich complexity of the Bach fugues to the catchy songs of the Beatles music and mathematics overlap in all kinds of interesting ______. Would you believe that research has shown that certain __________ of music end up being more popular and mainstream __________ their mathematical structure? The link between the physical practice of music and strong mathematical __________ are demonstrated in various studies. They show that kids who play a musical instrument can __________ more complex arithmetical operations than those who do not play an instrument.<br><br><i>They show that kids who play a musical instrument can __________ more complex arithmetical operations than those who do not play an instrument.</i>",
 
     a:[
-        "means",
-        "items",
-        "ways",
-        "methods"
+        "count",
+        "enumerate",
+        "achieve",
+        "perform"
     ],
 
     correct:3,
